@@ -59,6 +59,7 @@ export default function HomeScreen() {
           <Text className="font-semibold text-sm text-[#36693b]">See more</Text>
         </View>
         <FlatList
+          className="mx-5"
           data={COURSES.slice(0, 6)}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -78,6 +79,7 @@ export default function HomeScreen() {
           <Text className="font-semibold text-sm text-[#36693b]">See more</Text>
         </View>
         <FlatList
+          className="mx-5"
           data={COURSES.slice(7)}
           horizontal={true}
           showsHorizontalScrollIndicator={false}

@@ -1,6 +1,8 @@
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 interface CourseCardProps {
   image: any;
@@ -11,6 +13,24 @@ interface CourseCardProps {
   reviews: number;
 }
 
+type CourseDetailsProps = {
+  CourseDetails: {
+    course: {
+      title: string;
+      price: number;
+      category: string;
+      rating: number;
+      reviews: number;
+      image: any;
+    };
+  };
+};
+
+type NavigationProp = NativeStackNavigationProp<
+  CourseDetailsProps,
+  "CourseDetails"
+>;
+
 const CourseCard: React.FC<CourseCardProps> = ({
   image,
   title,
@@ -19,9 +39,19 @@ const CourseCard: React.FC<CourseCardProps> = ({
   rating,
   reviews,
 }) => {
+  const navigation = useNavigation<NavigationProp>();
+
   return (
-    <View className="bg-white rounded-lg p-3 w-72 mr-5">
-      {/* <View className="h-[250] justify-between"> */}
+    <TouchableOpacity
+      className="mx-0 mb-4"
+      onPress={() =>
+        navigation.navigate("CourseDetails", {
+          course: { title, price, category, rating, reviews, image },
+        })
+      }
+    >
+      <View className="bg-white rounded-lg p-3 w-72 mr-5">
+        {/* <View className="h-[250] justify-between"> */}
         <View>
           <Image
             style={{ width: "100%", height: 150 }}
@@ -48,8 +78,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
             </Text>
           </View>
         </View>
-      {/* </View> */}
-    </View>
+        {/* </View> */}
+      </View>
+    </TouchableOpacity>
   );
 };
 

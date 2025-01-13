@@ -8,11 +8,12 @@ import Explore from "../features/explore";
 import Wishlist from "../features/wishlist";
 import Profile from "../features/profile";
 import MyClass from "../features/myclass";
+import CourseDetails from "../features/courseDetails";
 
 export type RootStackParamList = {
   Onboarding: undefined;
   Main: { screen: keyof TabParamList };
-  // PropertyDetails: { propertyId: string };
+  CourseDetails: { propertyId: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,7 +27,7 @@ export default function Navigation() {
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Main" component={TabNavigator} />
-        {/* <Stack.Screen name="PropertyDetails" component={PropertyDetails} /> */}
+        <Stack.Screen name="CourseDetails" component={CourseDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -32,8 +32,8 @@ export default function Profile() {
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="pt-4">
           <ProfileHeader
-            name="Marisson Kalao"
-            email="marissonkalao@mail.com"
+            name="Adeniyi Azeez"
+            email="adeniyiazeez@gmail.com"
             image={require("../../assets/images/image.png")}
           />
 
@@ -51,13 +51,13 @@ export default function Profile() {
               icon="download-outline"
               title="Your Download"
             />
-            <ProfileMenuItem
+            {/* <ProfileMenuItem
               icon="moon-waning-crescent"
               title="Dark Mode"
               hasToggle
               isToggled={isDarkMode}
               onPress={() => setIsDarkMode(!isDarkMode)}
-            />
+            /> */}
           </View>
 
           {/* Other Settings */}
